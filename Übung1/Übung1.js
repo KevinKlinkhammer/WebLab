@@ -41,19 +41,23 @@ var j = new Object();
 
 
 //################################## Start Stack-Aufgabe###########
-var myStack = {
-    stack: [],
-    push: function (a) {
-        this.stack.push(a);
-    },
-    pop: function () {
-        this.stack.pop();
-    }
-};
-var test = new Object();
-myStack.push(test);
-var test2 = new Object();
-myStack.push(test);
+var Stack = (function(){
+    var stacka= [];
+    return {
+        push: function (a) {
+            stacka.push(a);
+        },
+        pop: function () {
+            stacka.pop();
+        }
+    };
+
+}());
+var myStack = Object.create(Stack);
+
+myStack.push("test");
+
+myStack.push("tests");
 console.log(myStack.stack);
 myStack.pop();
 console.log(myStack.stack);
