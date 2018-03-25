@@ -6,20 +6,42 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import javax.swing.JComponent;
 
-public class Ball extends JComponent {
-    private static final long serialVersionUID = 1L;
-    
-    public Ball(int x, int y, int diameter) {
-        super();
-        this.setLocation(x, y);
-        this.setSize(diameter, diameter);
+/**
+ * 
+ * @author binerdy
+ */
+public class Ball {
+    private int x;
+    private int y;
+    private int size;
+
+    public Ball(int x, int y, int size) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
     }
 
-    @Override
-    public void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        g.setColor(Color.red);
-        g.fillOval(0, 0, 100, 100);
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getSize() {
+        return size;
     }
 }
