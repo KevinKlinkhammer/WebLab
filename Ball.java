@@ -1,67 +1,47 @@
 package ch.hslu.ad.sw05;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
-
+import java.awt.Insets;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-public class Ball implements Runnable
-{
+/**
+ * 
+ * @author binerdy
+ */
+public class Ball {
+    private int x;
+    private int y;
+    private int size;
 
-	private Color ballFillColor;
-    private Color ballBorderColor;
-     
-    private int ballX = 0;
-    private int ballY = 0;
-    private int ballWidth = 0;
-    private int ballHeight = 0;
-     
-    public boolean fillBall = true;
-    
-    JPanel jp = null;
-    
-    Ball(int ballX, int ballY, int ballWidth, int ballHeight, Color ballBorderColor, JPanel jp){ //Constructor
-        this.ballFillColor=ballBorderColor;
-        this.ballBorderColor=ballBorderColor;
-        this.ballWidth=ballWidth;
-        this.ballHeight=ballHeight;
-        this.ballX=ballX;
-        this.ballY=ballY;
-        this.jp=jp;
-    }
-	
-    //public void drawBall(JPanel jp) 
-    //{
-    //    jp.add(new MyComponent());
-    //}
-    
-	private class MyComponent extends JComponent{
-		@Override
-        public void paintComponent(Graphics g){
-			super.paintComponent(g);
-			//g.setPaintMode();
-            System.out.println(ballFillColor+"test");
-            if (fillBall) //Fill first, and then draw outline.
-            {
-                g.setColor(ballFillColor);
-                g.fillOval(ballX,ballY, ballHeight,ballWidth);
-            }
-            
-            g.setColor(ballFillColor);
-            g.drawOval(ballX,ballY, ballHeight,ballWidth);
-            System.out.println("?");
-            
-            jp.revalidate();
-        }
+    public Ball(int x, int y, int size) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
     }
 
-	@Override
-	public void run() 
-	{
-		jp.add(new MyComponent());
-		//jp.revalidate();
-		//jp.repaint();
-	}
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getSize() {
+        return size;
+    }
 }
